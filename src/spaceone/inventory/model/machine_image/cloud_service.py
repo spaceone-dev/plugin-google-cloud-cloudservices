@@ -33,11 +33,11 @@ meta_machine_image = ItemDynamicLayout.set_fields('Instance', fields=[
 
 # TAB - Network
 # instance_template_meta_network
-meta_available_policy = ItemDynamicLayout.set_fields('Available policies', root_path='data.scheduling', fields=[
-    EnumDyField.data_source('Preemptibility', 'preemptibility', default_badge={
+meta_available_policy = ItemDynamicLayout.set_fields('Available policies', fields=[
+    EnumDyField.data_source('Preemptibility', 'data.scheduling.preemptibility', default_badge={
         'primary': ['On'], 'coral.600': ['Off']
     }),
-    EnumDyField.data_source('Automatic Restart', 'automatic_restart', default_badge={
+    EnumDyField.data_source('Automatic Restart', 'data.scheduling.automatic_restart', default_badge={
         'primary': ['On'], 'coral.600': ['Off']
     }),
     EnumDyField.data_source('Host Maintenance', 'data.on_host_maintenance', default_badge={

@@ -36,6 +36,18 @@ cst_bucket._metadata = CloudServiceTypeMeta.set_meta(
         TextDyField.data_source('Retention Policy', 'data.retention_policy_display'),
         TextDyField.data_source('Encryption', 'data.encryption'),
         DateTimeDyField.data_source('Creation Time', 'data.creation_timestamp'),
+
+        # is_optional - Default
+        TextDyField.data_source('Link URL', 'data.links.link_url', options={
+            'is_optional': True
+        }),
+        TextDyField.data_source('Link for gsutil', 'data.links.gsutil_link', options={
+            'is_optional': True
+        }),
+        TextDyField.data_source('Retention Period', 'data.retention_policy_display', options={
+            'is_optional': True
+        }),
+
     ],
 
     search=[

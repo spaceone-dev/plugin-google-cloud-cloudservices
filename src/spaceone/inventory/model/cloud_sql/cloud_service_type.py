@@ -30,6 +30,15 @@ cst_instance._metadata = CloudServiceTypeMeta.set_meta(
                                                                                          'delimiter': '<br>'}),
         TextDyField.data_source('Location', 'data.gce_zone'),
         TextDyField.data_source('Data Disk Size (GB)', 'data.settings.data_disk_size_gb'),
+
+        TextDyField.data_source('Connection name', 'data.connection_name', options={'is_optional': True}),
+        TextDyField.data_source('Location', 'data.gce_zone', options={'is_optional': True}),
+        TextDyField.data_source('Service Account', 'data.service_account_email_address', options={'is_optional': True}),
+
+
+        TextDyField.data_source('Auto Storage Increased Limit Size (GB)', 'data.settings.storage_auto_resize_limit',
+                                options={'is_optional': True}),
+
     ],
     search=[
         SearchField.set(name='Name', key='data.name'),

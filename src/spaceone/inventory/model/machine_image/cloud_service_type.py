@@ -1,4 +1,5 @@
-from spaceone.inventory.libs.schema.metadata.dynamic_field import TextDyField, SearchField, DateTimeDyField, ListDyField
+from spaceone.inventory.libs.schema.metadata.dynamic_field import TextDyField, SearchField, DateTimeDyField, \
+    ListDyField, EnumDyField
 from spaceone.inventory.libs.schema.cloud_service_type import CloudServiceTypeResource, CloudServiceTypeResponse, \
     CloudServiceTypeMeta
 
@@ -20,6 +21,22 @@ cst_machine_image._metadata = CloudServiceTypeMeta.set_meta(
         ListDyField.data_source('Storage location', 'data.storage_locations',
                                 default_badge={'type': 'outline', 'delimiter': '<br>'}),
         DateTimeDyField.data_source('Creation Time', 'data.creation_timestamp'),
+
+        # is_optional
+        TextDyField.data_source('ID', 'data.id', options={
+            'is_optional': True
+        }),
+        TextDyField.data_source('Description', 'data.description', options={
+            'is_optional': True
+        }),
+
+        TextDyField.data_source('Service accounts', 'data.service_account.email', options={
+            'is_optional': True
+        }),
+        TextDyField.data_source('Total Storage Bytes', 'data.total_storage_bytes', options={
+            'is_optional': True
+        }),
+
     ],
     search=[
         SearchField.set(name='ID', key='data.id'),

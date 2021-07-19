@@ -32,7 +32,6 @@ sql_meta_configuration = ItemDynamicLayout.set_fields('Configuration', fields=[
         'indigo.500': ['true'], 'coral.600': ['false']
     }),
     TextDyField.data_source('Auto Storage Increased Limit Size (GB)', 'data.settings.storage_auto_resize_limit'),
-    TextDyField.data_source('Automated Backup', 'data.'),
     EnumDyField.data_source('Point-in-time recovery', 'data.settings.storage_auto_resize', default_badge={
 
     }),

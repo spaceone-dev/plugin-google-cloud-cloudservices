@@ -70,7 +70,7 @@ class CloudSQLConnector(GoogleCloudConnector):
                 response = request.execute()
                 for backup in response.get('items', []):
                     backup_runs_list.append(backup)
-                request = self.client.users().list_next(previous_request=request, previous_response=response)
+                request = self.client.backup_runs().list_next(previous_request=request, previous_response=response)
             except Exception as e:
                 request = None
                 print(f'Error occurred at CloudSQLConnector: backup_runs().list(**query) : skipped \n {e}')

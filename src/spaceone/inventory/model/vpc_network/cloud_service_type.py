@@ -23,7 +23,14 @@ cst_network._metadata = CloudServiceTypeMeta.set_meta(
             'safe': ['On'],
             'warning': ['Off'],
         }),
-        TextDyField.data_source('Firewall Rules', 'data.firewall_data.total_number'),
+
+        # is_optional - Default
+        TextDyField.data_source('Description', 'data.description', options={
+            'is_optional': True
+        }),
+        TextDyField.data_source('IPv4 Range', 'data.ipv4_range', options={
+            'is_optional': True
+        }),
         DateTimeDyField.data_source('Creation Time', 'data.creation_timestamp'),
     ],
 

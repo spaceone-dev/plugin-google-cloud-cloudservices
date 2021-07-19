@@ -1,4 +1,5 @@
-from spaceone.inventory.libs.schema.metadata.dynamic_field import TextDyField, SearchField, DateTimeDyField, ListDyField
+from spaceone.inventory.libs.schema.metadata.dynamic_field import TextDyField, SearchField, DateTimeDyField, \
+    ListDyField, EnumDyField
 from spaceone.inventory.libs.schema.cloud_service_type import CloudServiceTypeResource, CloudServiceTypeResponse, \
     CloudServiceTypeMeta
 
@@ -20,6 +21,17 @@ cst_instance_template._metadata = CloudServiceTypeMeta.set_meta(
         TextDyField.data_source('Disk Type', 'data.disk_display'),
         ListDyField.data_source('In Used By', 'data.in_used_by',
                                 default_badge={'type': 'outline', 'delimiter': '<br>'}),
+
+        # is_optional
+
+        TextDyField.data_source('Self Link', 'data.self_link', options={'is_optional': True}),
+        ListDyField.data_source('Network Tags', 'data.network_tags',
+                                default_badge={'type': 'outline', 'delimiter': '<br>'}, options={'is_optional': True}),
+        TextDyField.data_source('Fingerprint', 'data.fingerprint', options={'is_optional': True}),
+        TextDyField.data_source('(Machine Info) Machine Type', 'data.machine.machine_type', options={'is_optional': True}),
+        TextDyField.data_source('(Machine Info) Core', 'data.machine.core', options={'is_optional': True}),
+        TextDyField.data_source('(Machine Info) Memory', 'data.machine.memory', options={'is_optional': True}),
+
         DateTimeDyField.data_source('Creation Time', 'data.creation_timestamp'),
     ],
     search=[

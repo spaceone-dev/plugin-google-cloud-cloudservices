@@ -11,9 +11,10 @@ cst_instance_group.labels = ['Compute']
 cst_instance_group.tags = {
     'spaceone:icon': 'https://spaceone-custom-assets.s3.ap-northeast-2.amazonaws.com/console-assets/icons/cloud-services/google_cloud/Compute_Engine.svg',
 }
-
+# , options={'is_optional': True}
 cst_instance_group._metadata = CloudServiceTypeMeta.set_meta(
     fields=[
+        TextDyField.data_source('Instance Group ID', 'data.id', options={'is_optional': True}),
         TextDyField.data_source('Name', 'data.name'),
         TextDyField.data_source('Instances', 'data.instance_counts'),
         EnumDyField.data_source('Type', 'data.instance_group_type',
@@ -26,6 +27,13 @@ cst_instance_group._metadata = CloudServiceTypeMeta.set_meta(
             'indigo.500': ['ON'], 'coral.600': ['OFF']
         }),
         TextDyField.data_source('Autoscaling', 'data.autoscaling_display'),
+
+        TextDyField.data_source('Project', 'data.project', options={'is_optional': True}),
+        TextDyField.data_source('Region', 'data.display_location.region', options={'is_optional': True}),
+        TextDyField.data_source('Zone', 'data.display_location.zone', options={'is_optional': True}),
+        TextDyField.data_source('Network', 'data.network', options={'is_optional': True}),
+        TextDyField.data_source('Subnet', 'data.subnetwork', options={'is_optional': True}),
+        TextDyField.data_source('Description', 'data.description', options={'is_optional': True}),
         DateTimeDyField.data_source('Creation Time', 'data.creation_timestamp'),
     ],
     search=[

@@ -28,6 +28,14 @@ cst_disk._metadata = CloudServiceTypeMeta.set_meta(
                                 default_badge={'type': 'outline', 'delimiter': '<br>'}),
         ListDyField.data_source('Snapshot Schedule', 'data.snapshot_schedule_display',
                                 default_badge={'type': 'outline', 'delimiter': '<br>'}),
+        TextDyField.data_source('Source Image', 'data.source_image_display', options={'is_optional': True}),
+
+
+        TextDyField.data_source('Read IOPS', 'data.read_iops', options={'is_optional': True}),
+        TextDyField.data_source('Write IOPS', 'data.write_iops', options={'is_optional': True}),
+        TextDyField.data_source('Read Throughput(MB/s)', 'data.read_throughput', options={'is_optional': True}),
+        TextDyField.data_source('Write Throughput(MB/s)', 'data.write_throughput', options={'is_optional': True}),
+
         DateTimeDyField.data_source('Creation Time', 'data.creation_timestamp'),
     ],
     search=[

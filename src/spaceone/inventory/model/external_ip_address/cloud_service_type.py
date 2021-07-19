@@ -25,7 +25,9 @@ cst_external_ip._metadata = CloudServiceTypeMeta.set_meta(
             'indigo.500': ['IPv4'], 'coral.600': ['IPv6']
         }),
         ListDyField.data_source('In Used By', 'data.used_by'),
+
         TextDyField.data_source('Network Tier', 'data.network_tier_display'),
+
         DateTimeDyField.data_source('Creation Time', 'data.creation_timestamp'),
     ],
 

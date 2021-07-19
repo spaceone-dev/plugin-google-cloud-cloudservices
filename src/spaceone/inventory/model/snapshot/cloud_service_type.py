@@ -20,12 +20,13 @@ cst_snapshot._metadata = CloudServiceTypeMeta.set_meta(
             'warning': ['CREATING', 'UPLOADING', 'DELETING'],
             'alert': ['FAILED'],
         }),
+
         ListDyField.data_source('Location', 'data.storage_locations'),
         SizeField.data_source('SnapShot Size', 'data.disk.storage_bytes'),
         TextDyField.data_source('Creation Type', 'data.creation_type'),
         TextDyField.data_source('Source Disk', 'data.disk.source_disk_display'),
         SizeField.data_source('Disk Size', 'data.disk.disk_size'),
-        DateTimeDyField.data_source('Creation Time', 'data.creation_timestamp'),
+        DateTimeDyField.data_source('Creation Time', 'data.creation_timestamp')
     ],
     # TODO: Give a set that fit to its filtered data...
     search=[

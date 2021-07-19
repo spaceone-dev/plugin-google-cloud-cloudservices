@@ -153,12 +153,12 @@ lb_details_tab_in_backend_proxy = SimpleTableDynamicLayout.set_fields('Backend (
                                                                       ])
 
 load_balancing_details = ListDynamicLayout.set_layouts('Details', layouts=[lb_frontend_in_detaail,
-                                                                                         lb_host_path_in_detail,
-                                                                                         lb_backend_url_map_in_detail,
-                                                                                         lb_details_tab_in_backend_proxy,
-                                                                                         lb_backend_target_pool_item_in_detail,
-                                                                                         lb_backend_target_pool_table_in_detail,
-                                                                                         ])
+                                                                           lb_host_path_in_detail,
+                                                                           lb_backend_url_map_in_detail,
+                                                                           lb_details_tab_in_backend_proxy,
+                                                                           lb_backend_target_pool_item_in_detail,
+                                                                           lb_backend_target_pool_table_in_detail,
+                                                                           ])
 
 lb_backend_meta = TableDynamicLayout.set_fields('Backends', root_path='data.backend_tabs', fields=[
     TextDyField.data_source('Name', 'name'),

@@ -22,7 +22,7 @@ cst_route._metadata = CloudServiceTypeMeta.set_meta(
         ListDyField.data_source('Instance tags', 'data.display.instance_tags_on_list'),
         TextDyField.data_source('Network', 'data.display.network_display'),
         TextDyField.data_source('Next Hop', 'data.display.next_hop'),
-        DateTimeDyField.data_source('Creation Time', 'data.creation_timestamp'),
+        DateTimeDyField.data_source('Creation Time', 'data.creation_timestamp')
     ],
 
     search=[

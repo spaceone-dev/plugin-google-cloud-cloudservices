@@ -25,6 +25,7 @@ cst_firewall._metadata = CloudServiceTypeMeta.set_meta(
         EnumDyField.data_source('Action On Match', 'data.display.action', default_badge={
             'indigo.500': ['Allow'], 'coral.600': ['Deny']
         }),
+
         DateTimeDyField.data_source('Creation Time', 'data.creation_timestamp'),
     ],
 

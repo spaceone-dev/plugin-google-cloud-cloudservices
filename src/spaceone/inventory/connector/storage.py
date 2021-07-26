@@ -53,7 +53,7 @@ class StorageConnector(GoogleCloudConnector):
                 response = request.execute()
                 result = response.get('items', [])
                 count = count + len(result)
-                for template in result
+                for template in result:
                     objects_list.append({'size': template['size']})
                 # Max iteration
                 if count > MAX_OBJECTS:

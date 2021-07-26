@@ -129,6 +129,9 @@ class StorageManager(GoogleCloudManager):
 
     @staticmethod
     def _get_number_of_obj_and_size(objects):
+        # Overflow (n/a is -1)
+        if objects == False:
+            return -1, -1
         object_count = len(objects)
         size = 0.0
         for obj in objects:

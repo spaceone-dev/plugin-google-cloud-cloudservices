@@ -6,6 +6,7 @@ from spaceone.inventory.error import *
 __all__ = ['StorageConnector']
 _LOGGER = logging.getLogger(__name__)
 
+MAX_OBJECTS = 100000
 
 class StorageConnector(GoogleCloudConnector):
     google_client_service = 'storage'
@@ -45,12 +46,19 @@ class StorageConnector(GoogleCloudConnector):
     def list_objects(self, bucket_name, **query):
         objects_list = []
         query.update({"bucket": bucket_name})
+        count = 0
         request = self.client.objects().list(**query)
         while request is not None:
             try:
                 response = request.execute()
-                for template in response.get('items', []):
-                    objects_list.append(template)
+                result = response.get('items', [])
+                count = count + len(result)
+                for template in result
+                    objects_list.append({'size': template['size']})
+                # Max iteration
+                if count > MAX_OBJECTS:
+                    # TOO MANY objects
+                    return False
                 request = self.client.objects().list_next(previous_request=request, previous_response=response)
 
             except Exception as e:
